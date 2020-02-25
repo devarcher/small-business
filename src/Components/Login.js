@@ -1,23 +1,22 @@
-import React, { UseStyles} from "react";
+import React, { UseStyles } from "react";
 import { Redirect } from "react-router";
 import { TextField, Button, Container } from "@material-ui/core";
-import { makeStyles } from '@material-ui/styles';
-
+import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
   form: {
-    height: '30vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center'
+    height: "30vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
   },
   button: {
-    color: 'black'
+    color: "black"
   }
 });
 
 const Login = () => {
-    const classes = useStyles();
+  const classes = useStyles();
   // handleTextChange = e => {
   //   const state = { ...this.state };
   //   state[e.target.name] = e.target.value;
@@ -32,7 +31,7 @@ const Login = () => {
 
   return (
     <div className="App">
-      <Container maxWidth="sm" >
+      <Container maxWidth="sm">
         <form className={classes.form} noValidate>
           <TextField
             required
@@ -42,7 +41,7 @@ const Login = () => {
             label="Username"
             type="text"
           />
-          <br/>
+          <br />
           <TextField
             required
             // onChange={this.handleTextChange}
@@ -52,11 +51,7 @@ const Login = () => {
             type="password"
           />
           <br />
-          <Button
-            type="submit"
-            className={classes.button}
-            variant="contained"
-          >
+          <Button type="submit" className={classes.button} variant="contained">
             Login
           </Button>
         </form>
