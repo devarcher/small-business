@@ -1,3 +1,12 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({});
+const user = (state = {}, action) => {
+  switch (action.type) {
+    case 'GET_USERNAME':
+      return [...state, user.action.value];
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ user });

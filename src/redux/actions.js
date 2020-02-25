@@ -1,15 +1,14 @@
-
-export const login = login => {
+export const getUsername = username => {
   return {
-    type: "LOGIN",
-    value: login
+    type: "GET_USERNAME",
+    value: username
   };
 };
 
 export const logout = logout => {
   return {
     type: "LOGOUT",
-    value: logout
+    value: ''
   };
 };
 
@@ -17,6 +16,13 @@ export const addListing = listing => {
   return {
     type: "ADD_LISTING",
     value: listing
+  };
+};
+
+export const deleteListing = id => {
+  return {
+    type: "DELETE_LISTING",
+    value: id
   };
 };
 

@@ -1,4 +1,6 @@
-import React, { UseStyles } from "react";
+import React, { useState } from "react";
+
+
 import { Redirect } from "react-router";
 import { TextField, Button, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
@@ -15,19 +17,18 @@ const useStyles = makeStyles({
   }
 });
 
-const Login = () => {
+const Login = (props) => {
   const classes = useStyles();
-  // handleTextChange = e => {
-  //   const state = { ...this.state };
-  //   state[e.target.name] = e.target.value;
-  //   this.setState(state);
-  // };
 
-  // login = e => {
-  //   e.preventDefault();
-  //   document.cookie = "loggedIn=true;max-age=60*1000";
-  //   window.location.replace("/");
-  // };
+  const [username, setUsername] = useState('');
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    // document.cookie = "loggedIn=true;max-age=60*1000";
+    // window.location.replace("/");
+    const payload = { username }
+    // console.log('UserName', payload)
+    props.getUserName(payload)
+  }
 
   return (
     <div className="App">
@@ -35,8 +36,8 @@ const Login = () => {
         <form className={classes.form} noValidate>
           <TextField
             required
-            // onChange={this.handleTextChange}
-            // value={this.state.username}
+            onChange={e => setUsername(e.target.value)}
+            value={username}
             name="username"
             label="Username"
             type="text"
@@ -44,14 +45,12 @@ const Login = () => {
           <br />
           <TextField
             required
-            // onChange={this.handleTextChange}
-            // value={this.state.password}
             name="password"
             label="Password"
             type="password"
           />
           <br />
-          <Button type="submit" className={classes.button} variant="contained">
+          <Button onClick={loginSubmit} className={classes.button} variant="contained">
             Login
           </Button>
         </form>
