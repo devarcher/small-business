@@ -1,12 +1,14 @@
 import React from "react";
-import "./App.css";
+import Router from "./Router";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 // Components
 import NavBar from "./Components/NavBar";
 
 // Material UI
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-// import "typeface-roboto";
 
 const theme = createMuiTheme({
   palette: {
@@ -21,11 +23,14 @@ const theme = createMuiTheme({
 
 function App() {
   return (
-    <div>
-      <ThemeProvider theme={theme}>
-        <NavBar />
-      </ThemeProvider>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <NavBar />
+          <Router />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
