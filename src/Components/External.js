@@ -1,8 +1,12 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import Listings from "./Listings";
 
 const External = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Listings />
+    </div>
+  );
 };
 
 export default External;

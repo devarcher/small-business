@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     logout: str => dispatch(logout(str)),
-    isAuthenticated: str => dispatch(isAuthenticated(str))
+    isAuthenticated: Boolean => dispatch(isAuthenticated(Boolean))
   };
 };
 

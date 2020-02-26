@@ -1,32 +1,36 @@
 import { combineReducers } from "redux";
 
-const user = (state = {}, action) => {
+const username = (state = {}, action) => {
   switch (action.type) {
     case "GET_USERNAME":
-      return { username: action.value };
-    case "LOGOUT":
-      return { username: action.value };
+      console.log("user reducer state", state);
+      console.log("user reducer action value", action.value);
+      return { ...state, ...action.value };
     default:
       return state;
   }
 };
 
-const isAuthenticated = (state = null, action) => {
+const isAuthenticated = (state = {}, action) => {
   switch (action.type) {
     case "IS_AUTHENTICATED":
-      return state.isAuthenticated, action.value;
+      console.log("auth recducer state", state);
+      console.log("auth reducer action value", action.value);
+      return { ...state, ...action.value };
     default:
       return state;
   }
 };
 
-const logout = (state = null, action) => {
+const logout = (state = {}, action) => {
   switch (action.type) {
     case "LOGOUT":
-      return { username: action.value };
+      console.log("state", state);
+      console.log("action value", action.value);
+      return { ...state, ...action.value };
     default:
       return state;
   }
 };
 
-export default combineReducers({ user, isAuthenticated, logout });
+export default combineReducers({ username, isAuthenticated, logout });

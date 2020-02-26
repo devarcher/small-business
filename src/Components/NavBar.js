@@ -33,7 +33,7 @@ export default function NavBar(props) {
   const classes = useStyles();
 
   const logoutHandler = () => {
-    props.logout('');
+    props.logout("");
     props.isAuthenticated(false);
   };
 
@@ -46,7 +46,7 @@ export default function NavBar(props) {
           </Typography>
           {props.isAuthenticated === false ? (
             <>
-              {console.log('auth = false')}
+              {console.log("auth = false")}
               <Button className={classes.button}>Listings</Button>
               <Link to="/login" className={classes.link}>
                 <Button className={classes.button}>Login</Button>
@@ -54,7 +54,7 @@ export default function NavBar(props) {
             </>
           ) : (
             <>
-              {console.log('auth = true')}
+              {console.log("auth = true")}
               <Button className={classes.button}>Listings</Button>
               <Link to="/" className={classes.link}>
                 <Button

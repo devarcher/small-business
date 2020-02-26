@@ -1,20 +1,36 @@
 import React from "react";
-import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect } from "react-router";
 import cookie from "cookie";
 
 // Components + Containers
-import Internal from "../src/Components/Internal";
+import DashBoard from "../src/Containers/DashBoard";
 import External from "../src/Components/External";
-import ExternalMap from "../src/Components/ExternalMap";
 import Login from "../src/Containers/Login";
+import Listings from "../src/Components/Listings";
+
+const checkAuth = () => {
+  const cookies = cookie.parse(document.cookie);
+  return cookies["loggedIn"] ? true : false;
+};
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        checkAuth() ? <Component {...props} /> : <Redirect to="/login" />
+      }
+    />
+  );
+};
 
 const Router = () => {
   return (
     <Switch>
       <Route exact path="/" component={External} />
       <Route path="/login" component={Login} />
-      <Route path="/map" component={ExternalMap} />
-      <Route path="/dashboard" component={Internal} />
+      <Route path="/listings" component={Listings} />
+      <ProtectedRoute path="/dashboard" component={DashBoard} />
     </Switch>
   );
 };
