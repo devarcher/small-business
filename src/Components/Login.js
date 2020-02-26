@@ -27,6 +27,7 @@ const Login = props => {
     const payload = { username };
     console.log("UserName", payload);
     props.getUsername(payload);
+    props.isAuthenticated(true);
   };
 
   return (
