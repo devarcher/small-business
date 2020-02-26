@@ -26,8 +26,8 @@ const Login = (props) => {
     // document.cookie = "loggedIn=true;max-age=60*1000";
     // window.location.replace("/");
     const payload = { username }
-    // console.log('UserName', payload)
-    props.getUserName(payload)
+    console.log('UserName', payload)
+    props.getUsername(payload)
   }
 
   return (
