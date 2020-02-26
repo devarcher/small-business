@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 import { Redirect } from "react-router";
 import { TextField, Button, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
@@ -17,18 +16,18 @@ const useStyles = makeStyles({
   }
 });
 
-const Login = (props) => {
+const Login = props => {
   const classes = useStyles();
 
-  const [username, setUsername] = useState('');
-  const loginSubmit = (e) => {
+  const [username, setUsername] = useState("");
+  const loginSubmit = e => {
     e.preventDefault();
     // document.cookie = "loggedIn=true;max-age=60*1000";
     // window.location.replace("/");
-    const payload = { username }
-    console.log('UserName', payload)
-    props.getUsername(payload)
-  }
+    const payload = { username };
+    console.log("UserName", payload);
+    props.getUsername(payload);
+  };
 
   return (
     <div className="App">
@@ -50,7 +49,11 @@ const Login = (props) => {
             type="password"
           />
           <br />
-          <Button onClick={loginSubmit} className={classes.button} variant="contained">
+          <Button
+            onClick={loginSubmit}
+            className={classes.button}
+            variant="contained"
+          >
             Login
           </Button>
         </form>

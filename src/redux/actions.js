@@ -5,10 +5,17 @@ export const getUsername = username => {
   };
 };
 
+export const isAuthenticated = auth => {
+  return {
+    type: "IS_AUTHENTICATED",
+    value: auth
+  };
+};
+
 export const logout = logout => {
   return {
     type: "LOGOUT",
-    value: ''
+    value: ""
   };
 };
 

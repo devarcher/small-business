@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Material Ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -18,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     color: "white"
+  },
+  link: {
+    textDecoration: "none"
   }
 }));
 
@@ -32,7 +36,9 @@ export default function ButtonAppBar() {
             Austin Small Business
           </Typography>
           <Button className={classes.button}>Listings</Button>
-          <Button className={classes.button}>Login</Button>
+          <Link to="/login" className={classes.link}>
+            <Button className={classes.button}>Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

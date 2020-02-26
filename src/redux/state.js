@@ -1,6 +1,7 @@
 export default {
+  isAuthenticated: false,
   user: {
-    username: "",
+    username: ""
   },
   listings: [],
   map: []
