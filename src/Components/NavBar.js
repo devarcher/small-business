@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -35,10 +35,26 @@ export default function ButtonAppBar() {
           <Typography variant="h5" className={classes.title}>
             Austin Small Business
           </Typography>
-          <Button className={classes.button}>Listings</Button>
-          <Link to="/login" className={classes.link}>
-            <Button className={classes.button}>Login</Button>
-          </Link>
+          {props.isAuthenticated === false ? (
+            <>
+              <Button className={classes.button}>Listings</Button>
+              <Link to="/login" className={classes.link}>
+                <Button className={classes.button}>Login</Button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Button className={classes.button}>Listings</Button>
+              <Link to="/" className={classes.link}>
+                <Button
+                  onClick={() => props.logout()}
+                  className={classes.button}
+                >
+                  Logout
+                </Button>
+              </Link>
+            </>
+          )}
         </Toolbar>
       </AppBar>
     </div>

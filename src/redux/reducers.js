@@ -11,10 +11,10 @@ const user = (state = {}, action) => {
   }
 };
 
-const isAuthenticaed = (state = null, action) => {
+const isAuthenticated = (state = null, action) => {
   switch (action.type) {
     case "IS_AUTHENTICATED":
-      return [...state, true];
+      return state.isAuthenticated, action.value;
     default:
       return state;
   }
@@ -23,10 +23,10 @@ const isAuthenticaed = (state = null, action) => {
 const logout = (state = null, action) => {
   switch (action.type) {
     case "LOGOUT":
-      return [...state, ""];
+      return [...state, action.value];
     default:
       return state;
   }
 };
 
-export default combineReducers({ user, isAuthenticaed, logout });
+export default combineReducers({ user, isAuthenticated, logout });

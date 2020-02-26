@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 // Components
-import NavBar from "./Components/NavBar";
+import NavBar from "./Containers/NavBar";
 
 // Material UI
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
