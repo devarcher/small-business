@@ -5,10 +5,10 @@ export const getUsername = username => {
   };
 };
 
-export const isAuthenticated = auth => {
+export const isAuthenticated = boolean => {
   return {
     type: "IS_AUTHENTICATED",
-    value: auth
+    value: boolean
   };
 };
 

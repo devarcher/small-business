@@ -23,7 +23,7 @@ const isAuthenticated = (state = null, action) => {
 const logout = (state = null, action) => {
   switch (action.type) {
     case "LOGOUT":
-      return [...state, action.value];
+      return { username: action.value };
     default:
       return state;
   }

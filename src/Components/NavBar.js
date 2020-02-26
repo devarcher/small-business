@@ -22,11 +22,20 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     textDecoration: "none"
+  },
+  buttonLogout: {
+    color: "white",
+    fontWeight: "bold"
   }
 }));
 
-export default function ButtonAppBar(props) {
+export default function NavBar(props) {
   const classes = useStyles();
+
+  const logoutHandler = () => {
+    props.logout('');
+    props.isAuthenticated(false);
+  };
 
   return (
     <div className={classes.root}>
@@ -37,6 +46,7 @@ export default function ButtonAppBar(props) {
           </Typography>
           {props.isAuthenticated === false ? (
             <>
+              {console.log('auth = false')}
               <Button className={classes.button}>Listings</Button>
               <Link to="/login" className={classes.link}>
                 <Button className={classes.button}>Login</Button>
@@ -44,11 +54,12 @@ export default function ButtonAppBar(props) {
             </>
           ) : (
             <>
+              {console.log('auth = true')}
               <Button className={classes.button}>Listings</Button>
               <Link to="/" className={classes.link}>
                 <Button
-                  onClick={() => props.logout()}
-                  className={classes.button}
+                  onClick={logoutHandler}
+                  className={classes.buttonLogout}
                 >
                   Logout
                 </Button>

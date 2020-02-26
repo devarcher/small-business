@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Login from "../Components/Login";
-import { getUsername, isAuthenticated, logout } from "../redux/actions";
+import { getUsername, isAuthenticated } from "../redux/actions";
 
 const mapDispatchToProps = dispatch => {
   return {

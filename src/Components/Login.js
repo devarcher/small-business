@@ -20,6 +20,7 @@ const Login = props => {
   const classes = useStyles();
 
   const [username, setUsername] = useState("");
+
   const loginSubmit = e => {
     e.preventDefault();
     // document.cookie = "loggedIn=true;max-age=60*1000";
