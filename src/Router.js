@@ -10,7 +10,7 @@ import Listings from "../src/Components/Listings";
 
 export const checkAuth = () => {
   const cookies = cookie.parse(document.cookie);
-  return cookies["loggedIn"] ? true : false;
+  return cookies["loggedIn=true"] ? true : false;
 };
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {

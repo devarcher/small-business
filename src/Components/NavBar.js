@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { checkAuth } from "../Router";
 
@@ -32,11 +32,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function NavBar(props) {
   const classes = useStyles();
-
+  
   const logoutHandler = () => {
-    document.cookie='';
     window.location.replace("/");
     console.log('logout')
+    document.cookie = '';
   };
 
   return (
@@ -46,9 +46,8 @@ export default function NavBar(props) {
           <Typography variant="h5" className={classes.title}>
             Austin Small Business
           </Typography>
-          {checkAuth() === false ? (
+          {(document.cookie === '') ? (
             <>
-              {/* {console.log("*dashboard auth: for ? : render*= false")} */}
               <Button className={classes.button}>Listings</Button>
               <Link to="/login" className={classes.link}>
                 <Button className={classes.button}>Login</Button>
@@ -56,7 +55,6 @@ export default function NavBar(props) {
             </>
           ) : (
             <>
-              {/* {console.log("*dashboard auth for ? : render* = true")} */}
               <Button className={classes.button}>Listings</Button>
               <Link to="/" className={classes.link}>
                 <Button

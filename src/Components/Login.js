@@ -21,12 +21,11 @@ const Login = props => {
 
   const [username, setUsername] = useState("");
 
-  const loginSubmit = e => {
-    e.preventDefault();
-    document.cookie = "loggedIn=true;max-age=60*1000";
+  const loginSubmit = () => {
     props.history.push("/dashboard");
     props.getUsername(username);
     setUsername("");
+    document.cookie = "loggedIn=true;max-age=60*1000";
     // console.log(typeof username);
   };
 
