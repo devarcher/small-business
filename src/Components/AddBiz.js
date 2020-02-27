@@ -29,13 +29,21 @@ const useStyles = makeStyles({
 const AddBiz = props => {
   const classes = useStyles();
 
-  const [input, setInput] = useState({})
+  // Add agnostic input to state as an object
+  const [input, setInput] = useState({});
 
-  const handleInputChange = (e) => setInput({
-    ...input,
-    [e.currentTarget.name]: e.currentTarget.value
-  });
+  // Handle change in inputs and set input field name, each name becomes key value pair in state object
+  const handleInputChange = e =>
+    setInput({
+      ...input,
+      [e.currentTarget.name]: e.currentTarget.value
+    });
 
+  // Move form data to redux State
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.addListing(input);
+  };
 
   return (
     <div>
@@ -47,14 +55,35 @@ const AddBiz = props => {
       <Box display="flex" justifyContent="center">
         <Box width="80vw">
           <form className={classes.form} noValidate autoComplete="off">
-            <TextField name="name" label="Name" onChange={handleInputChange} value={input.name || ''}/>
-            <TextField name="address" label="Address" onChange={handleInputChange} value={input.address || ''}/>
-            <TextField name="hours" label="Hours (ex. 8am - 8pm)" onChange={handleInputChange} value={input.hours || ''}/>
-            <TextField name="description" label="Description" onChange={handleInputChange} value={input.description || ''}/>
+            <TextField
+              name="name"
+              label="Name"
+              onChange={handleInputChange}
+              value={input.name || ""}
+            />
+            <TextField
+              name="address"
+              label="Address"
+              onChange={handleInputChange}
+              value={input.address || ""}
+            />
+            <TextField
+              name="hours"
+              label="Hours (ex. 8am - 8pm)"
+              onChange={handleInputChange}
+              value={input.hours || ""}
+            />
+            <TextField
+              name="description"
+              label="Description"
+              onChange={handleInputChange}
+              value={input.description || ""}
+            />
             <Button
               className={classes.formButton}
               variant="contained"
               color="primary"
+              onClick={handleSubmit}
             >
               Save
             </Button>

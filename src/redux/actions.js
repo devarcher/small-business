@@ -5,20 +5,6 @@ export const getUsername = payload => {
   };
 };
 
-export const isAuthenticated = boolean => {
-  return {
-    type: "IS_AUTHENTICATED",
-    value: boolean
-  };
-};
-
-export const logout = logout => {
-  return {
-    type: "LOGOUT",
-    value: ""
-  };
-};
-
 export const addListing = listing => {
   return {
     type: "ADD_LISTING",

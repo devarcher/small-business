@@ -26,8 +26,10 @@ function createData(name, calories, fat, carbs, protein) {
 
 const rows = [];
 
-export default function Listings() {
+export default function Listings(props) {
   const classes = useStyles();
+
+  console.log("***Listings props***", props);
 
   return (
     <>

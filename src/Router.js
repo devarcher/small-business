@@ -6,7 +6,7 @@ import cookie from "cookie";
 import DashBoard from "../src/Containers/DashBoard";
 import External from "../src/Components/External";
 import Login from "../src/Containers/Login";
-import Listings from "../src/Components/Listings";
+import Listings from "../src/Containers/Listings";
 import AddBiz from "../src/Containers/AddBiz";
 import SingleBiz from "../src/Components/SingleBiz";
 

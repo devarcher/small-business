@@ -1,6 +1,6 @@
 const state = {
-  username: null
-  // listings: [],
+  username: null,
+  listings: []
   // map: []
 };
 
