@@ -1,7 +1,8 @@
 import React from "react";
 import Map from "./Map";
-import { Typography } from "@material-ui/core";
+import { Typography, TextField, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { findByLabelText } from "@testing-library/react";
 
 const useStyles = makeStyles({
   namediv: {
@@ -10,7 +11,14 @@ const useStyles = makeStyles({
   },
   name: {
     marginLeft: "20px"
-  }
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    width: '35vw',
+    marginTop: '50px'
+  },
+
 });
 
 const AddBiz = props => {
@@ -22,7 +30,18 @@ const AddBiz = props => {
           Logged in as: {props.username}
         </Typography>
       </div>
-      <Map />
+      <Box display='flex' justifyContent='center'>
+
+      <Box width='80vw'>
+        <form className={classes.form} noValidate autoComplete="off">
+          <TextField label="Name" />
+          <TextField label="Address" />
+          <TextField label="Hours (ex. 8am - 8pm)" />
+          <TextField label="Description" />
+        </form>
+        <Map />
+      </Box>
+      </Box>
     </div>
   );
 };
