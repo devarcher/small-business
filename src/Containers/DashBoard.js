@@ -4,7 +4,7 @@ import DashBoard from "../Components/DashBoard";
 const mapStateToProps = state => {
   console.log("***Props in Dash***", state);
   return {
-    username: state.user
+    username: state.username
   };
 };
 

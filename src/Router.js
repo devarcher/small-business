@@ -8,7 +8,7 @@ import External from "../src/Components/External";
 import Login from "../src/Containers/Login";
 import Listings from "../src/Components/Listings";
 
-const checkAuth = () => {
+export const checkAuth = () => {
   const cookies = cookie.parse(document.cookie);
   return cookies["loggedIn"] ? true : false;
 };

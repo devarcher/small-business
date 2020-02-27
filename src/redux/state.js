@@ -1,8 +1,7 @@
-export default {
-  isAuthenticated: false,
-  user: {
-    username: ""
-  },
+const state = {
+  username: null,
   listings: [],
   map: []
 };
+
+export default state;

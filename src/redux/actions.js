@@ -1,7 +1,7 @@
-export const getUsername = username => {
+export const getUsername = payload => {
   return {
     type: "GET_USERNAME",
-    value: username
+    value: payload
   };
 };
 

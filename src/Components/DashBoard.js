@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Listings from "./Listings";
 
 const DashBoard = props => {
-  console.log("props username: ", props.username);
+  console.log("***DASHBOARD PROPS***", props);
   return (
     <div>
-      <div>{props.username}</div>
+      <div></div>
       <Listings />
     </div>
   );

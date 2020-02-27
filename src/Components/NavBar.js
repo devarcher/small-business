@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { checkAuth } from "../Router";
 
 // Material Ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -46,7 +47,7 @@ export default function NavBar(props) {
           </Typography>
           {props.isAuthenticated === false ? (
             <>
-              {console.log("auth = false")}
+              {/* {console.log("*dashboard auth: for ? : render*= false")} */}
               <Button className={classes.button}>Listings</Button>
               <Link to="/login" className={classes.link}>
                 <Button className={classes.button}>Login</Button>
@@ -54,7 +55,7 @@ export default function NavBar(props) {
             </>
           ) : (
             <>
-              {console.log("auth = true")}
+              {/* {console.log("*dashboard auth for ? : render* = true")} */}
               <Button className={classes.button}>Listings</Button>
               <Link to="/" className={classes.link}>
                 <Button

@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
 import Login from "../Components/Login";
-import { getUsername, isAuthenticated } from "../redux/actions";
+import { getUsername } from "../redux/actions";
 
 const mapDispatchToProps = dispatch => {
   return {
-    getUsername: username => dispatch(getUsername(username)),
-    isAuthenticated: boolean => dispatch(isAuthenticated(boolean))
+    getUsername: payload => dispatch(getUsername(payload))
   };
 };
 

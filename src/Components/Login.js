@@ -24,10 +24,9 @@ const Login = props => {
   const loginSubmit = e => {
     e.preventDefault();
     document.cookie = "loggedIn=true;max-age=60*1000";
-    window.location.replace("/dashboard");
-    const payload = { username };
-    console.log("UserName", payload);
-    props.getUsername(payload);
+    props.history.push("/dashboard");
+    // console.log(typeof username);
+    props.getUsername(username);
     props.isAuthenticated(true);
     setUsername("");
   };
