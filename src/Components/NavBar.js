@@ -56,7 +56,9 @@ export default function NavBar(props) {
             </>
           ) : (
             <>
-              <Button className={classes.button}>Listings</Button>
+              <Link to="/dashboard" className={classes.link}>
+                <Button className={classes.button}>Listings</Button>
+              </Link>
               <Link to="/addbiz" className={classes.link}>
                 <Button className={classes.button}>Add</Button>
               </Link>
