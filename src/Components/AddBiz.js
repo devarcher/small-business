@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Map from "./Map";
+
 import { Typography, TextField, Box, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { findByLabelText } from "@testing-library/react";
 
 const useStyles = makeStyles({
   namediv: {
@@ -28,6 +28,15 @@ const useStyles = makeStyles({
 
 const AddBiz = props => {
   const classes = useStyles();
+
+  const [input, setInput] = useState({})
+
+  const handleInputChange = (e) => setInput({
+    ...input,
+    [e.currentTarget.name]: e.currentTarget.value
+  });
+
+
   return (
     <div>
       <div className={classes.namediv}>
@@ -38,10 +47,10 @@ const AddBiz = props => {
       <Box display="flex" justifyContent="center">
         <Box width="80vw">
           <form className={classes.form} noValidate autoComplete="off">
-            <TextField label="Name" />
-            <TextField label="Address" />
-            <TextField label="Hours (ex. 8am - 8pm)" />
-            <TextField label="Description" />
+            <TextField name="name" label="Name" onChange={handleInputChange} value={input.name || ''}/>
+            <TextField name="address" label="Address" onChange={handleInputChange} value={input.address || ''}/>
+            <TextField name="hours" label="Hours (ex. 8am - 8pm)" onChange={handleInputChange} value={input.hours || ''}/>
+            <TextField name="description" label="Description" onChange={handleInputChange} value={input.description || ''}/>
             <Button
               className={classes.formButton}
               variant="contained"

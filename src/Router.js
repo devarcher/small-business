@@ -8,6 +8,7 @@ import External from "../src/Components/External";
 import Login from "../src/Containers/Login";
 import Listings from "../src/Components/Listings";
 import AddBiz from "../src/Containers/AddBiz";
+import SingleBiz from "../src/Components/SingleBiz";
 
 export const checkAuth = () => {
   const cookies = cookie.parse(document.cookie);
@@ -31,8 +32,9 @@ const Router = () => {
       <Route exact path="/" component={External} />
       <Route path="/login" component={Login} />
       <Route path="/listings" component={Listings} />
-      <ProtectedRoute path="/addbiz" component={AddBiz} />
+      <Route path="/singlebiz" component={SingleBiz} />
       <ProtectedRoute path="/dashboard" component={DashBoard} />
+      <ProtectedRoute path="/addbiz" component={AddBiz} />
     </Switch>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Listings from "./Listings";
 
 import { Typography } from "@material-ui/core";

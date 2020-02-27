@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { Redirect } from "react-router";
 import { TextField, Button, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
