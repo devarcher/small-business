@@ -25,10 +25,9 @@ const Login = props => {
     e.preventDefault();
     document.cookie = "loggedIn=true;max-age=60*1000";
     props.history.push("/dashboard");
-    // console.log(typeof username);
     props.getUsername(username);
-    props.isAuthenticated(true);
     setUsername("");
+    // console.log(typeof username);
   };
 
   return (

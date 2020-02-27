@@ -1,7 +1,7 @@
 const state = {
   username: null,
-  listings: [],
-  map: []
+  // listings: [],
+  // map: []
 };
 
 export default state;

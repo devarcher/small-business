@@ -34,8 +34,9 @@ export default function NavBar(props) {
   const classes = useStyles();
 
   const logoutHandler = () => {
-    props.logout("");
-    props.isAuthenticated(false);
+    document.cookie='';
+    window.location.replace("/");
+    console.log('logout')
   };
 
   return (
@@ -45,7 +46,7 @@ export default function NavBar(props) {
           <Typography variant="h5" className={classes.title}>
             Austin Small Business
           </Typography>
-          {props.isAuthenticated === false ? (
+          {checkAuth() === false ? (
             <>
               {/* {console.log("*dashboard auth: for ? : render*= false")} */}
               <Button className={classes.button}>Listings</Button>
