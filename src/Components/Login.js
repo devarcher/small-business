@@ -22,10 +22,10 @@ const Login = props => {
   const [username, setUsername] = useState("");
 
   const loginSubmit = () => {
-    document.cookie = "loggedIn=true;max-age=60*1000";
     props.history.push("/dashboard");
     props.getUsername(username);
     setUsername("");
+    document.cookie = "loggedIn=true;max-age=60*1000";
   };
 
   return (

@@ -5,7 +5,7 @@ const DashBoard = props => {
   console.log("***DASHBOARD PROPS***", props);
   return (
     <div>
-      <div></div>
+      <div>{props.username}</div>
       <Listings />
     </div>
   );

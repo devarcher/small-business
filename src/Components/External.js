@@ -1,7 +1,7 @@
 import React from "react";
 import Listings from "./Listings";
 
-const External = () => {
+const External = props => {
   return (
     <div>
       <Listings />

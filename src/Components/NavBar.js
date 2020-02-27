@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { checkAuth } from "../Router";
-import cookie from "cookie";
 
 // Material Ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -33,14 +32,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function NavBar(props) {
   const classes = useStyles();
-  
-  const logoutHandler = (e) => {
+
+  const logoutHandler = e => {
     e.preventDefault();
     window.location.replace("/");
-    document.cookie = 'loggedIn='
-    console.log('logout')
+    document.cookie = "loggedIn=";
+    console.log("logout");
   };
-  
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -58,6 +57,9 @@ export default function NavBar(props) {
           ) : (
             <>
               <Button className={classes.button}>Listings</Button>
+              <Link to="/addbiz" className={classes.link}>
+                <Button className={classes.button}>Add</Button>
+              </Link>
               <Link to="/" className={classes.link}>
                 <Button
                   onClick={logoutHandler}
