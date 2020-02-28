@@ -23,6 +23,11 @@ const useStyles = makeStyles({
     width: "50%",
     marginTop: "20px",
     color: "white"
+  },
+  mapBox: {
+    width: "35vw",
+    marginTop: "50px",
+    marginLeft: "20px"
   }
 });
 
@@ -54,7 +59,7 @@ const AddBiz = props => {
         </Typography>
       </div>
       <Box display="flex" justifyContent="center">
-        <Box width="80vw">
+        <Box width="80vw" height="40vh" display="flex">
           <form className={classes.form} noValidate autoComplete="off">
             <TextField
               name="name"
@@ -89,7 +94,9 @@ const AddBiz = props => {
               Save
             </Button>
           </form>
-          <Map />
+          <Box className={classes.mapBox}>
+            <Map />
+          </Box>
         </Box>
       </Box>
     </div>
