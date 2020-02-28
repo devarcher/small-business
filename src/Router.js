@@ -9,6 +9,7 @@ import Login from "../src/Containers/Login";
 import Listings from "../src/Containers/Listings";
 import AddBiz from "../src/Containers/AddBiz";
 import SingleBiz from "../src/Components/SingleBiz";
+import Map from '../src/Components/Map';
 
 export const checkAuth = () => {
   const cookies = cookie.parse(document.cookie);
@@ -33,6 +34,7 @@ const Router = () => {
       <Route path="/login" component={Login} />
       <Route path="/listings" component={Listings} />
       <Route path="/singlebiz" component={SingleBiz} />
+      <Route path='/map' component={Map} />
       <ProtectedRoute path="/dashboard" component={DashBoard} />
       <ProtectedRoute path="/addbiz" component={AddBiz} />
     </Switch>

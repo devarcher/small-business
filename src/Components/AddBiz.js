@@ -43,6 +43,7 @@ const AddBiz = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.addListing(input);
+    setInput("");
   };
 
   return (

@@ -29,7 +29,7 @@ const rows = [];
 export default function Listings(props) {
   const classes = useStyles();
 
-  console.log("***Listings props***", props);
+  console.log("***Listings props***", props.listinngs);
 
   return (
     <>

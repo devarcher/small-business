@@ -3,10 +3,7 @@ import { combineReducers } from "redux";
 const username = (state = null, action) => {
   switch (action.type) {
     case "GET_USERNAME":
-      console.log("***USER reducer state***", state);
-      console.log("***USER reducer action value***", action.value);
       return action.value;
-
     default:
       return state;
   }
@@ -15,11 +12,11 @@ const username = (state = null, action) => {
 const listings = (state = [], action) => {
   switch (action.type) {
     case "ADD_LISTING":
-      console.log("***REDUCER LISTING***", action.value);
+      console.log("**REDUCER**", action.value);
       const newState = [...state];
-      console.log("***new state***", newState);
-      newState.push(action.value);
-      return newState;
+      const obj = action.value;
+      console.log("**Reducer State**:", newState);
+      return newState.push(obj);
     default:
       return state;
   }

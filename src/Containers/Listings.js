@@ -3,7 +3,8 @@ import Listings from "../Components/Listings";
 
 const mapStateToProps = state => {
   return {
-    listings: [...state.listings]
+    listings: state.listings
   };
 };
-export default connect(mapStateToProps, null)(Listings);
+
+export default connect(mapStateToProps)(Listings);
