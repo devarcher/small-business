@@ -10,28 +10,36 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper
+  Paper,
+  Typography
 } from "@material-ui/core";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650
+  },
+  namediv: {
+    padding: "5px",
+    background: "lightgrey"
+  },
+  name: {
+    marginLeft: "20px"
   }
 });
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [];
 
 export default function Listings(props) {
   const classes = useStyles();
 
+  const rows = props.listings;
+  console.log(rows);
   return (
     <>
-      <div>Listings: {props.listings}</div>
+      <div className={classes.namediv}>
+        <Typography className={classes.name}>
+          Logged in as: {props.username}
+        </Typography>
+      </div>
       {!checkAuth() ? (
         <Box display="flex" justifyContent="center" padding={8}>
           <Box width="80vw">
@@ -51,10 +59,9 @@ export default function Listings(props) {
                       <TableCell component="th" scope="row">
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell align="right">{row.description}</TableCell>
+                      <TableCell align="right">{row.hours}</TableCell>
+                      <TableCell align="right">{row.address}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -77,15 +84,15 @@ export default function Listings(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map(row => (
-                    <TableRow key={row.name}>
+                  {rows.map((row, index) => (
+                    <TableRow key={index}>
                       <TableCell component="th" scope="row">
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell align="right">{row.name}</TableCell>
+                      <TableCell align="right">{row.description}</TableCell>
+                      <TableCell align="right">{row.hours}</TableCell>
+                      <TableCell align="right">{row.address}</TableCell>
                       <TableCell align="right">
                         <DeleteForeverIcon />
                       </TableCell>

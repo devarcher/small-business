@@ -12,10 +12,13 @@ const username = (state = null, action) => {
 const listings = (state = [], action) => {
   switch (action.type) {
     case "ADD_LISTING":
-      return [...state, action.value]
+      return [...state, action.value];
     default:
       return state;
   }
 };
 
-export default combineReducers({ username, listings });
+export default combineReducers({
+  username: username,
+  listings: listings
+});
