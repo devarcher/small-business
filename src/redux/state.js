@@ -1,6 +1,13 @@
 const state = {
   username: null,
-  listings: []
+  listings: [
+    {
+      name: "a thing",
+      address: "12 main",
+      hours: "8 - 9",
+      description: "nice try"
+    }
+  ]
   // map: []
 };
 
