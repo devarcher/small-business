@@ -30,9 +30,12 @@ const useStyles = makeStyles({
 
 export default function Listings(props) {
   const classes = useStyles();
-
   const rows = props.listings;
-  console.log(rows);
+
+  const handleDelete = (id) => {
+    props.deleteListing(id);
+  }
+  
   return (
     <>
       {!checkAuth() ? (
@@ -96,7 +99,7 @@ export default function Listings(props) {
                         <TableCell align="right">{row.hours}</TableCell>
                         <TableCell align="right">{row.address}</TableCell>
                         <TableCell align="right">
-                          <DeleteForeverIcon />
+                          <DeleteForeverIcon onClick={() => {handleDelete(row.id)}} />
                         </TableCell>
                       </TableRow>
                     ))}

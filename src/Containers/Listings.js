@@ -1,12 +1,18 @@
 import { connect } from "react-redux";
 import Listings from "../Components/Listings";
+import { deleteListing } from '../redux/actions'
 
 const mapStateToProps = state => {
-  console.log("inside mapstatetoprops");
   return {
     listings: state.listings,
     username: state.username
   };
 };
 
-export default connect(mapStateToProps, null)(Listings);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteListing: id => dispatch(deleteListing(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Listings);
