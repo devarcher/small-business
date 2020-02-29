@@ -28,9 +28,9 @@ const useStyles = makeStyles({
     marginLeft: "20px"
   },
   link: {
-    textDecoration: 'none',
-    padding: '0',
-    margin: '0',
+    textDecoration: "none",
+    padding: "0",
+    margin: "0"
   }
 });
 
@@ -61,10 +61,9 @@ export default function Listings(props) {
                   <TableBody>
                     {rows.map(row => (
                       <TableRow key={row.name}>
-                      
-                          <TableCell component={Link} to={'/singlebiz'}>
-                            {row.name}
-                          </TableCell>
+                        <TableCell component={Link} to={`/singlebiz/${row.id}`}>
+                          {row.name}
+                        </TableCell>
                         <TableCell align="center">{row.description}</TableCell>
                         <TableCell align="right">{row.hours}</TableCell>
                         <TableCell align="right">{row.address}</TableCell>
@@ -99,9 +98,14 @@ export default function Listings(props) {
                   <TableBody>
                     {rows.map((row, index) => (
                       <TableRow key={index}>
-                          <TableCell component="th" scope="row" component={Link} to={'/singlebiz'}>
-                            {row.name}
-                          </TableCell>
+                        <TableCell
+                          component="th"
+                          scope="row"
+                          component={Link}
+                          to={`/singlebiz/${row.id}`}
+                        >
+                          {row.name}
+                        </TableCell>
                         <TableCell align="right">{row.description}</TableCell>
                         <TableCell align="right">{row.hours}</TableCell>
                         <TableCell align="right">{row.address}</TableCell>

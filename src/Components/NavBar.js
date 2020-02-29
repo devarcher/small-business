@@ -49,7 +49,9 @@ export default function NavBar(props) {
           </Typography>
           {!checkAuth() ? (
             <>
-              <Button className={classes.button}>Listings</Button>
+              <Link to="/" className={classes.link}>
+                <Button className={classes.button}>Listings</Button>
+              </Link>
               <Link to="/login" className={classes.link}>
                 <Button className={classes.button}>Login</Button>
               </Link>

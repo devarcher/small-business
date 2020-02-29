@@ -6,7 +6,7 @@ import cookie from "cookie";
 import Login from "../src/Containers/Login";
 import Listings from "../src/Containers/Listings";
 import AddBiz from "../src/Containers/AddBiz";
-import SingleBiz from "../src/Components/SingleBiz";
+import SingleBiz from "../src/Containers/SingleBiz";
 import MapPage from "../src/Components/Map";
 
 export const checkAuth = () => {
@@ -30,7 +30,7 @@ const Router = () => {
     <Switch>
       <Route exact path="/" component={Listings} />
       <Route path="/login" component={Login} />
-      <Route path="/singlebiz" component={SingleBiz} />
+      <Route path="/singlebiz/:id" component={SingleBiz} />
       <Route path="/map" component={MapPage} />
       <ProtectedRoute path="/dashboard" component={Listings} />
       <ProtectedRoute path="/addbiz" component={AddBiz} />
