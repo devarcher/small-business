@@ -1,5 +1,6 @@
 import React from "react";
 import { checkAuth } from "../Router";
+import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -25,6 +26,11 @@ const useStyles = makeStyles({
   },
   name: {
     marginLeft: "20px"
+  },
+  link: {
+    textDecoration: 'none',
+    padding: '0',
+    margin: '0',
   }
 });
 
@@ -32,10 +38,10 @@ export default function Listings(props) {
   const classes = useStyles();
   const rows = props.listings;
 
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     props.deleteListing(id);
-  }
-  
+  };
+
   return (
     <>
       {!checkAuth() ? (
@@ -55,10 +61,11 @@ export default function Listings(props) {
                   <TableBody>
                     {rows.map(row => (
                       <TableRow key={row.name}>
-                        <TableCell component="th" scope="row">
-                          {row.name}
-                        </TableCell>
-                        <TableCell align="right">{row.description}</TableCell>
+                      
+                          <TableCell component={Link} to={'/singlebiz'}>
+                            {row.name}
+                          </TableCell>
+                        <TableCell align="center">{row.description}</TableCell>
                         <TableCell align="right">{row.hours}</TableCell>
                         <TableCell align="right">{row.address}</TableCell>
                       </TableRow>
@@ -83,7 +90,7 @@ export default function Listings(props) {
                   <TableHead>
                     <TableRow>
                       <TableCell>Names</TableCell>
-                      <TableCell align="right">Description</TableCell>
+                      <TableCell align="center">Description</TableCell>
                       <TableCell align="right">Hours</TableCell>
                       <TableCell align="right">Address</TableCell>
                       <TableCell align="right">Delete</TableCell>
@@ -92,14 +99,18 @@ export default function Listings(props) {
                   <TableBody>
                     {rows.map((row, index) => (
                       <TableRow key={index}>
-                        <TableCell component="th" scope="row">
-                          {row.name}
-                        </TableCell>
+                          <TableCell component="th" scope="row" component={Link} to={'/singlebiz'}>
+                            {row.name}
+                          </TableCell>
                         <TableCell align="right">{row.description}</TableCell>
                         <TableCell align="right">{row.hours}</TableCell>
                         <TableCell align="right">{row.address}</TableCell>
                         <TableCell align="right">
-                          <DeleteForeverIcon onClick={() => {handleDelete(row.id)}} />
+                          <DeleteForeverIcon
+                            onClick={() => {
+                              handleDelete(row.id);
+                            }}
+                          />
                         </TableCell>
                       </TableRow>
                     ))}
