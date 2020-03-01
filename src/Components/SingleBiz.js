@@ -10,7 +10,7 @@ const SingleBiz = props => {
   return (
     <div>
       <Container maxWidth='sm'>
-        <Box marginBottom='10px'>
+        <Box marginBottom='10px' borderBottom='1px solid black' paddingTop={4}>
           <Typography variant='h3' fontWeight='bold'>
             {biz.name}
           </Typography>
