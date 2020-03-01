@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
-
-const Map = ({ text }) => <div>{text}</div>;
+import RoomIcon from '@material-ui/icons/Room';
 
 class GoogleMap extends Component {
   static defaultProps = {
@@ -9,8 +8,12 @@ class GoogleMap extends Component {
       lat: 59.95,
       lng: 30.33
     },
-    zoom: 11
+    zoom: 12,
   };
+
+AnyReactComponent = ({ text }) => <div><RoomIcon/></div>;
+
+  // Take addres props into component from AddBiz / SingleBiz & convert to geocode. Set Lat and Lng in state to converted geocode
 
   render() {
     const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -22,7 +25,7 @@ class GoogleMap extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <div lat={59.955413} lng={30.337844} text="My Marker" />
+          <this.AnyReactComponent lat={59.95541} lng={30.33784} text="" />
         </GoogleMapReact>
       </div>
     );
