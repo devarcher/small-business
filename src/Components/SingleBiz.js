@@ -3,9 +3,9 @@ import Map from "./Map";
 import { Container, Box, Typography } from "@material-ui/core";
 
 const SingleBiz = props => {
-  const id = props.match.params.id;
+  const id = parseInt(props.match.params.id);
   const listings = props.listings;
-  const biz = listings.find(listing => listing.id == id);
+  const biz = listings.find(listing => listing.id === id);
 
   return (
     <div>

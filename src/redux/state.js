@@ -42,7 +42,6 @@ const state = {
         "This Merit Coffee location in the Seaholm district is a great place to meet up with people or get some work done downtown (there’s a ton of outlets and good wifi). It’s also very dog-friendly, with people just letting their dogs up on the banquets. The coffee’s good – they roast their own beans – and there’s some outdoor seating, Tacodeli tacos, and and pastries like doughnuts and kolaches from Bakery Lorraine in San Antonio. This location is on the smaller side, and at peak hours it can get loud and busy, to the degree that there’s sometimes nowhere to sit. But conveniently, it’s near the new library and Trader Joe’s, so you can return those overdue books and do some grocery shopping before or after you get your caffeine fix."
     }
   ]
-  // map: []
 };
 
 export default state;

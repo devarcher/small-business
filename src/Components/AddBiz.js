@@ -34,8 +34,16 @@ const useStyles = makeStyles({
 const AddBiz = props => {
   const classes = useStyles();
 
+  const def = {
+    name: 'Austin',
+    address: '100 Congress Ave, Austin, Tx',
+    Hours: null,
+    Description: null
+  }
+
   // Add agnostic input to state as an object
   const [input, setInput] = useState({});
+  const [isSubmitted, setISSubmitted] = useState(false);
 
   // Handle change in inputs and set input field name, each name becomes key value pair in state object
   const handleInputChange = e =>
@@ -48,11 +56,12 @@ const AddBiz = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.addListing(input);
-    setInput("");
+    setISSubmitted(true);
   };
 
   return (
     <div>
+    {console.log(isSubmitted)}
       <div className={classes.namediv}>
         <Typography className={classes.name}>
           Logged in as: {props.username}
@@ -95,7 +104,8 @@ const AddBiz = props => {
             </Button>
           </form>
           <Box className={classes.mapBox}>
-            <Map />
+            {isSubmitted && <Map biz={input} />}
+            {!isSubmitted && <Map biz={def} />}
           </Box>
         </Box>
       </Box>
