@@ -26,11 +26,6 @@ const useStyles = makeStyles({
   },
   name: {
     marginLeft: "20px"
-  },
-  link: {
-    textDecoration: "none",
-    padding: "0",
-    margin: "0"
   }
 });
 
@@ -53,20 +48,20 @@ export default function Listings(props) {
                   <TableHead>
                     <TableRow>
                       <TableCell>Names</TableCell>
-                      <TableCell align="right">Description</TableCell>
-                      <TableCell align="right">Hours</TableCell>
-                      <TableCell align="right">Address</TableCell>
+                      <TableCell align="center">Description</TableCell>
+                      <TableCell align="left">Hours</TableCell>
+                      <TableCell align="left">Address</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {rows.map(row => (
-                      <TableRow key={row.name}>
+                      <TableRow key={row.id}>
                         <TableCell component={Link} to={`/singlebiz/${row.id}`}>
                           {row.name}
                         </TableCell>
-                        <TableCell align="center">{row.description}</TableCell>
-                        <TableCell align="right">{row.hours}</TableCell>
-                        <TableCell align="right">{row.address}</TableCell>
+                        <TableCell align="left">{row.description}</TableCell>
+                        <TableCell align="left">{row.hours}</TableCell>
+                        <TableCell align="left">{row.address}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -90,9 +85,9 @@ export default function Listings(props) {
                     <TableRow>
                       <TableCell>Names</TableCell>
                       <TableCell align="center">Description</TableCell>
-                      <TableCell align="right">Hours</TableCell>
-                      <TableCell align="right">Address</TableCell>
-                      <TableCell align="right">Delete</TableCell>
+                      <TableCell align="left">Hours</TableCell>
+                      <TableCell align="left">Address</TableCell>
+                      <TableCell align="left">Delete</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -106,10 +101,10 @@ export default function Listings(props) {
                         >
                           {row.name}
                         </TableCell>
-                        <TableCell align="right">{row.description}</TableCell>
-                        <TableCell align="right">{row.hours}</TableCell>
-                        <TableCell align="right">{row.address}</TableCell>
-                        <TableCell align="right">
+                        <TableCell align="center">{row.description}</TableCell>
+                        <TableCell align="left">{row.hours}</TableCell>
+                        <TableCell align="left">{row.address}</TableCell>
+                        <TableCell align="left">
                           <DeleteForeverIcon
                             onClick={() => {
                               handleDelete(row.id);
