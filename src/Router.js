@@ -7,7 +7,7 @@ import Login from "../src/Containers/Login";
 import Listings from "../src/Containers/Listings";
 import AddBiz from "../src/Containers/AddBiz";
 import SingleBiz from "../src/Containers/SingleBiz";
-import MapPage from "../src/Components/Map";
+import MapPage from "../src/Containers/Map";
 
 export const checkAuth = () => {
   const cookies = cookie.parse(document.cookie);

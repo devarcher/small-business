@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import SingleBiz from "../Components/SingleBiz";
 
 const mapStateToProps = state => {
-  console.log('mstp singlebiz')
+  console.log("mstp singlebiz");
   return {
     listings: state.listings,
     username: state.username
