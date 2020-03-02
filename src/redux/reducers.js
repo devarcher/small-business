@@ -12,6 +12,9 @@ const username = (state = null, action) => {
 const listings = (state = [], action) => {
   switch (action.type) {
     case "ADD_LISTING":
+      // Add id to new object
+      action.value.id = Date.now()
+      console.log(action.value)
       return [...state, action.value];
     case "DELETE_LISTING":
       const newState = [...state];

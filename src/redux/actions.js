@@ -18,7 +18,3 @@ export const deleteListing = id => {
     value: id
   };
 };
-
-export const fetchCoordinates = () => {
-  console.log("hit fetchCoordinates");
-};

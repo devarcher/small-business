@@ -34,7 +34,7 @@ const useStyles = makeStyles({
 const AddBiz = props => {
   const classes = useStyles();
 
-  const def = {
+  const baseMapView = {
     name: 'Austin',
     address: '100 Congress Ave, Austin, Tx',
     Hours: null,
@@ -105,7 +105,7 @@ const AddBiz = props => {
           </form>
           <Box className={classes.mapBox}>
             {isSubmitted && <Map biz={input} />}
-            {!isSubmitted && <Map biz={def} />}
+            {!isSubmitted && <Map biz={baseMapView} />}
           </Box>
         </Box>
       </Box>
