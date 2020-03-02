@@ -35,11 +35,11 @@ const AddBiz = props => {
   const classes = useStyles();
 
   const baseMapView = {
-    name: 'Austin',
-    address: '100 Congress Ave, Austin, Tx',
+    name: "Austin",
+    address: "100 Congress Ave, Austin, Tx",
     Hours: null,
     Description: null
-  }
+  };
 
   // Add agnostic input to state as an object
   const [input, setInput] = useState({});
@@ -61,7 +61,7 @@ const AddBiz = props => {
 
   return (
     <div>
-    {console.log(isSubmitted)}
+      {console.log(isSubmitted)}
       <div className={classes.namediv}>
         <Typography className={classes.name}>
           Logged in as: {props.username}

@@ -27,20 +27,20 @@ class GoogleMap extends Component {
   componentDidMount() {
     this.fetchGeoCode();
   }
-  
+
   async fetchGeoCode() {
-    const address = this.props.biz.address
+    const address = this.props.biz.address;
     const splitAddress = address.split(" ");
     const formattedAddress = splitAddress.join("+");
-    console.log('in fetch')
-    
+    console.log("in fetch");
+
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`;
-    
+
     try {
       const response = await fetch(url);
       const data = await response.json();
       const geoLocationResponse = data.results[0].geometry.location;
-      
+
       this.setState({ geocode: geoLocationResponse });
     } catch (err) {
       console.log(err);
@@ -54,21 +54,20 @@ class GoogleMap extends Component {
     return (
       // Important! Always set the container height explicitly
 
-          <div style={{ height: "45vh", width: "100%" }}>
-            <GoogleMapReact
-              bootstrapURLKeys={{ key }}
-              defaultCenter={this.props.center}
-              defaultZoom={this.props.zoom}
-            >
-              <this.Marker
-                style={{ cursor: "pointer" }}
-                lat={this.state.geocode.lat}
-                lng={this.state.geocode.lng}
-                text={this.props.name}
-              />
-            </GoogleMapReact>
-          </div>
-        
+      <div style={{ height: "45vh", width: "100%" }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          <this.Marker
+            style={{ cursor: "pointer" }}
+            lat={this.state.geocode.lat}
+            lng={this.state.geocode.lng}
+            text={this.props.name}
+          />
+        </GoogleMapReact>
+      </div>
     );
   }
 }

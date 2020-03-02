@@ -13,8 +13,7 @@ const listings = (state = [], action) => {
   switch (action.type) {
     case "ADD_LISTING":
       // Add id to new object
-      action.value.id = Date.now()
-      console.log(action.value)
+      action.value.id = Date.now();
       return [...state, action.value];
     case "DELETE_LISTING":
       const newState = [...state];
