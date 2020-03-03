@@ -15,7 +15,6 @@ const useStyles = makeStyles({
   }
 });
 
-
 const SingleBiz = props => {
   const classes = useStyles();
 

@@ -39,6 +39,7 @@ class GoogleMap extends Component {
     try {
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data)
       const geoLocationResponse = data.results[0].geometry.location;
 
       this.setState({ geocode: geoLocationResponse });
@@ -58,14 +59,17 @@ class GoogleMap extends Component {
         <GoogleMapReact
           bootstrapURLKeys={{ key }}
           defaultCenter={this.props.center}
+          // lat={this.state.geocode.lat}
+          // lng={this.state.geocode.lng}
           defaultZoom={this.props.zoom}
+          yesIWantToUseGoogleMapApiInternals
         >
           <this.Marker
-            style={{ cursor: "pointer" }}
+            // style={{ cursor: "pointer" }}
             lat={this.state.geocode.lat}
             lng={this.state.geocode.lng}
-            text={this.props.name}
-          />
+            text='my marker'
+         />
         </GoogleMapReact>
       </div>
     );
