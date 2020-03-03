@@ -91,8 +91,8 @@ export default function Listings(props) {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows.map((row, index) => (
-                      <TableRow key={index}>
+                    {rows.map((row) => (
+                      <TableRow key={row.id}>
                         <TableCell
                           component="th"
                           scope="row"

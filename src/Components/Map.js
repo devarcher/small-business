@@ -36,17 +36,17 @@ class GoogleMap extends Component {
 
   async fetchGeoCode() {
     const address = this.props.biz.address;
-    console.log('in fetch biz address', address)
+    // console.log('in fetch biz address', address)
     const splitAddress = address.split(" ");
     const formattedAddress = splitAddress.join("+");
     // console.log("in fetch");
 
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`;
-    console.log('url', url)
+    // console.log('url', url)
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       const geoLocationResponse = data.results[0].geometry.location;
 
       this.setState({ geocode: geoLocationResponse });

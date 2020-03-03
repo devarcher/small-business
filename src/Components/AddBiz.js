@@ -34,7 +34,7 @@ const useStyles = makeStyles({
 const AddBiz = props => {
   const classes = useStyles();
 
-  const baseMapView = {
+  const defaultMapAddress = {
     address: "100 Congress Ave, Austin, Tx",
   };
 
@@ -102,7 +102,7 @@ const AddBiz = props => {
             </Button>
           </form>
           <Box className={classes.mapBox}>
-            {isSubmitted ? <Map biz={submittedAddress} isSubmitted={isSubmitted} /> : <Map biz={baseMapView} />}
+            {isSubmitted ? <Map biz={submittedAddress} isSubmitted={isSubmitted} /> : <Map biz={defaultMapAddress} />}
           </Box>
         </Box>
       </Box>
