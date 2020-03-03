@@ -35,15 +35,13 @@ const AddBiz = props => {
   const classes = useStyles();
 
   const baseMapView = {
-    name: "Austin",
     address: "100 Congress Ave, Austin, Tx",
-    Hours: null,
-    Description: null
   };
 
   // Add agnostic input to state as an object
   const [input, setInput] = useState({});
-  const [isSubmitted, setISSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submittedAddress, setSubmittedAddress] = useState('')
 
   // Handle change in inputs and set input field name, each name becomes key value pair in state object
   const handleInputChange = e =>
@@ -52,16 +50,16 @@ const AddBiz = props => {
       [e.currentTarget.name]: e.currentTarget.value
     });
 
-  // Move form data to redux State
+  // Move form data to redux State prep state address to become prop for Map.js  
   const handleSubmit = e => {
     e.preventDefault();
     props.addListing(input);
-    setISSubmitted(true);
+    setSubmittedAddress(input)
+    setIsSubmitted(true)
   };
 
   return (
     <div>
-      {console.log(isSubmitted)}
       <div className={classes.namediv}>
         <Typography className={classes.name}>
           Logged in as: {props.username}
@@ -104,8 +102,7 @@ const AddBiz = props => {
             </Button>
           </form>
           <Box className={classes.mapBox}>
-            {isSubmitted && <Map biz={input} />}
-            {!isSubmitted && <Map biz={baseMapView} />}
+            {isSubmitted ? <Map biz={submittedAddress} isSubmitted={isSubmitted} /> : <Map biz={baseMapView} />}
           </Box>
         </Box>
       </Box>
